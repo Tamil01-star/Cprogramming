@@ -31,7 +31,7 @@ export const TopicFilter: React.FC<TopicFilterProps> = ({
 }) => {
   return (
     <div className="bg-white border-b border-slate-200 px-4 sm:px-6 lg:px-8 py-3 sticky top-[125px] z-20 shadow-2xs">
-      <div className="max-w-7xl mx-auto flex flex-col gap-3">
+      <div className="w-full flex flex-col gap-3">
         {/* Row 1: PDF Sections Bar */}
         <div className="flex items-center justify-between gap-2 overflow-x-auto pb-1 scrollbar-none">
           {/* Section Tabs */}

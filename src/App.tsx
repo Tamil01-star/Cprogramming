@@ -250,8 +250,8 @@ export default function App() {
         }}
       />
 
-      {/* Main Content Layout */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      {/* Main Content Layout - Full Screen Width */}
+      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex items-start gap-8">
           {/* Desktop Left Sidebar with Section Grouping */}
           <Sidebar

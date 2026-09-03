@@ -3,7 +3,7 @@ import React from 'react';
 export const Footer: React.FC = () => {
   return (
     <footer className="mt-16 bg-white border-t border-slate-200 py-8 px-4 text-center">
-      <div className="max-w-7xl mx-auto space-y-2">
+      <div className="w-full space-y-2">
         <h3 className="text-sm font-bold text-slate-800 tracking-tight">
           C Programming Interview Notes
         </h3>
