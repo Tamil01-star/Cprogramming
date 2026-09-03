@@ -1,6 +1,6 @@
 import React from 'react';
 import { SectionMeta } from '../types';
-import { LayoutGrid, BookOpenCheck } from 'lucide-react';
+import { LayoutGrid, BookOpenCheck, Layers } from 'lucide-react';
 
 interface TopicFilterProps {
   sections: SectionMeta[];
@@ -32,10 +32,15 @@ export const TopicFilter: React.FC<TopicFilterProps> = ({
   return (
     <div className="bg-white border-b border-slate-200 px-4 sm:px-6 lg:px-8 py-3 sticky top-[125px] z-20 shadow-2xs">
       <div className="max-w-7xl mx-auto flex flex-col gap-3">
-        {/* Row 1: Section Tabs & View Mode Switcher */}
+        {/* Row 1: PDF Sections Bar */}
         <div className="flex items-center justify-between gap-2 overflow-x-auto pb-1 scrollbar-none">
           {/* Section Tabs */}
           <div className="flex items-center gap-1.5 shrink-0">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1 mr-1">
+              <Layers className="w-3.5 h-3.5 text-blue-600" />
+              PDF Sections:
+            </span>
+
             <button
               onClick={() => onSelectSection(null)}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
@@ -44,8 +49,9 @@ export const TopicFilter: React.FC<TopicFilterProps> = ({
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
-              All Sections
+              All (201)
             </button>
+
             {sections.map((sec) => {
               const isSelected = selectedSectionId === sec.id;
               return (
@@ -58,8 +64,9 @@ export const TopicFilter: React.FC<TopicFilterProps> = ({
                       : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                   }`}
                 >
+                  <span className="font-bold">Sec {sec.id}:</span>
                   <span>{sec.shortTitle}</span>
-                  <span className={`px-1.5 py-0.2 rounded-full text-[10px] ${isSelected ? 'bg-blue-700 text-white' : 'bg-slate-200 text-slate-700'}`}>
+                  <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono ${isSelected ? 'bg-blue-700 text-white' : 'bg-slate-200 text-slate-700'}`}>
                     {sec.count}
                   </span>
                 </button>
@@ -94,7 +101,7 @@ export const TopicFilter: React.FC<TopicFilterProps> = ({
           </div>
         </div>
 
-        {/* Row 2: Secondary Filters (Topic dropdown/chips, Difficulty pills, Result count) */}
+        {/* Row 2: Topic & Difficulty Filters */}
         <div className="flex items-center justify-between gap-3 text-xs flex-wrap">
           <div className="flex items-center gap-2 flex-wrap">
             {/* Topic Filter dropdown */}

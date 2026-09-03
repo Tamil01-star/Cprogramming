@@ -130,10 +130,8 @@ export default function App() {
 
   // Current Question object
   const currentQuestion = useMemo(() => {
-    // If currentQuestionId is inside filtered list, pick it
     const found = filteredQuestions.find((q) => q.id === currentQuestionId);
     if (found) return found;
-    // Otherwise pick first filtered question, or fallback to first overall
     return filteredQuestions.length > 0 ? filteredQuestions[0] : QUESTIONS[0];
   }, [filteredQuestions, currentQuestionId]);
 
@@ -160,7 +158,6 @@ export default function App() {
   // Keyboard navigation (Left / Right arrow keys)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't intercept if user is typing in an input field
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
         return;
       }
@@ -224,7 +221,7 @@ export default function App() {
         selectedSectionId={selectedSectionId}
         onSelectSection={(id) => {
           setSelectedSectionId(id);
-          setSelectedTopic(null); // Reset topic when switching sections
+          setSelectedTopic(null);
         }}
         topics={allTopics}
         selectedTopic={selectedTopic}
@@ -241,22 +238,34 @@ export default function App() {
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
         questions={filteredQuestions}
+        sections={SECTIONS}
         currentQuestionId={currentQuestion.id}
         onSelectQuestion={handleSelectQuestion}
         masteredIds={masteredIds}
         bookmarkedIds={bookmarkedIds}
+        selectedSectionId={selectedSectionId}
+        onSelectSection={(id) => {
+          setSelectedSectionId(id);
+          setSelectedTopic(null);
+        }}
       />
 
       {/* Main Content Layout */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex items-start gap-8">
-          {/* Desktop Left Sidebar */}
+          {/* Desktop Left Sidebar with Section Grouping */}
           <Sidebar
             questions={filteredQuestions}
+            sections={SECTIONS}
             currentQuestionId={currentQuestion.id}
             onSelectQuestion={handleSelectQuestion}
             masteredIds={masteredIds}
             bookmarkedIds={bookmarkedIds}
+            selectedSectionId={selectedSectionId}
+            onSelectSection={(id) => {
+              setSelectedSectionId(id);
+              setSelectedTopic(null);
+            }}
           />
 
           {/* Right / Center Question Display Area */}
@@ -297,6 +306,7 @@ export default function App() {
             ) : (
               <BrowseView
                 questions={filteredQuestions}
+                sections={SECTIONS}
                 masteredIds={masteredIds}
                 onToggleMastered={handleToggleMastered}
                 bookmarkedIds={bookmarkedIds}
