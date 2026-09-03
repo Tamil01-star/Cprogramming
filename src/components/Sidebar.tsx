@@ -48,7 +48,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   }, [questions, sections]);
 
   return (
-    <aside className="w-80 shrink-0 hidden lg:block bg-white border border-slate-200 rounded-2xl shadow-xs h-[calc(100vh-180px)] sticky top-[180px] overflow-y-auto">
+    <aside className="w-80 shrink-0 hidden lg:block bg-white border border-slate-200 rounded-2xl shadow-xs h-[calc(100vh-165px)] sticky top-[165px] overflow-y-auto">
       {/* Header */}
       <div className="p-3.5 border-b border-slate-200 bg-slate-50 sticky top-0 z-10 flex items-center justify-between">
         <div className="flex items-center gap-1.5 text-slate-800 font-bold text-xs uppercase tracking-wider">

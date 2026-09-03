@@ -30,8 +30,8 @@ export const TopicFilter: React.FC<TopicFilterProps> = ({
   filteredCount
 }) => {
   return (
-    <div className="bg-white border-b border-slate-200 px-4 sm:px-6 lg:px-8 py-3 sticky top-[125px] z-20 shadow-2xs">
-      <div className="w-full flex flex-col gap-3">
+    <div className="bg-white border-b border-slate-200 px-3 py-2 sticky top-[110px] z-20 shadow-2xs">
+      <div className="w-full flex flex-col gap-2">
         {/* Row 1: PDF Sections Bar */}
         <div className="flex items-center justify-between gap-2 overflow-x-auto pb-1 scrollbar-none">
           {/* Section Tabs */}

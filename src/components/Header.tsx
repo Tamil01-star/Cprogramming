@@ -31,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Top Banner Gradient matching theme reference */}
       <div className="h-1.5 w-full bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600"></div>
 
-      <div className="w-full px-4 sm:px-6 lg:px-8 py-4">
+      <div className="w-full px-3 py-3">
         {/* Main Bar */}
         <div className="flex items-center justify-between gap-4">
           {/* Logo & Titles */}
